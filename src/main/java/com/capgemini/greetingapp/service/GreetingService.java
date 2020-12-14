@@ -41,7 +41,8 @@ public class GreetingService implements IGreetingInterface{
 	@Override
 	public List<Greeting> deleteGreeting(long id) {
 		greetingRepository.deleteById(id);
-		return getAll();
+		return greetingRepository.findAll();
+		
 	}
 
 }

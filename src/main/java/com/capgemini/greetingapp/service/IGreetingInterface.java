@@ -14,5 +14,5 @@ public interface IGreetingInterface {
 	
 	Greeting updateGreeting(long id, User user);
 	
-	List<Greeting> deleteGreeting(long id);
+	public List<Greeting> deleteGreeting(long id);
 }

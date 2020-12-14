@@ -3,7 +3,9 @@ package com.capgemini.greetingapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,17 +29,17 @@ public class GreetingController {
 		return greetingService.addGreeting(user);
 	}
 
-	@RequestMapping("/id")
+	@GetMapping("/id")
 	public Greeting getId(@RequestParam(value = "id") long id) {
 		return greetingService.getGreetingById(id);
 	}
 
-	@RequestMapping("/getall")
+	@GetMapping("/getall")
 	public List<Greeting> getAll() {
 		return greetingService.getAll();
 	}
 
-	@RequestMapping("/update")
+	@PutMapping("/update")
 	public Greeting updateGreeting(@RequestParam(value = "id") long id,
 			@RequestParam(value = "fname", defaultValue = "World") String fname,
 			@RequestParam(value = "lname", defaultValue = "World") String lname) {
@@ -47,7 +49,7 @@ public class GreetingController {
 		return greetingService.updateGreeting(id, user);
 	}
 
-	@RequestMapping("/delete")
+	@DeleteMapping("/delete")
 	public List<Greeting> deleteGreeting(@RequestParam(value = "id") long id) {
 		return greetingService.deleteGreeting(id);
 	}
